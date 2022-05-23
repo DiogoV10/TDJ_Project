@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Input;
+using Project.Models;
 
 namespace Project
 {
@@ -32,6 +33,8 @@ namespace Project
             else throw new Exception("Instance already created!");
         }
 
+        
+
         public void Update()
         {
             KeyboardState state = Keyboard.GetState();
@@ -49,10 +52,6 @@ namespace Project
 
                     else if(keysAndState[k] == KeyState.UP || keysAndState[k] == KeyState.NONE)
                         keysAndState[k] = KeyState.PRESSED;
-
-
-                    
-                    
 
                 }
             }
@@ -75,7 +74,7 @@ namespace Project
         public bool IsKeyPressed(Keys k) => keysAndState.ContainsKey(k) && keysAndState[k] == KeyState.PRESSED;
         public bool IsKeyUp(Keys k) => keysAndState.ContainsKey(k) && keysAndState[k] == KeyState.UP;
 
-        bool isKeyHeld(Keys k) => keysAndState.ContainsKey(k) && keysAndState[k] == KeyState.HELD;
+        public bool IsKeyHeld(Keys k) => keysAndState.ContainsKey(k) && keysAndState[k] == KeyState.HELD;
 
     }
 }

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Project.Sprites
 {
-    public class Sprite
+    class Sprite
     {
         protected Texture2D _texture;
 
@@ -15,6 +15,10 @@ namespace Project.Sprites
         public Vector2 Velocity;
 
         public Input Input;
+        public float Speed;
+
+        private KeyboardManager km;
+
 
         public Rectangle Rectangle
         {
@@ -24,9 +28,10 @@ namespace Project.Sprites
             }
         }
 
-        public Sprite(Texture2D texture)
+        public Sprite(Texture2D texture, KeyboardManager _km)
         {
             _texture = texture;
+            km = _km;
         }
 
         public virtual void Update(GameTime gametime, List<Sprite> sprites)
@@ -39,7 +44,7 @@ namespace Project.Sprites
             spriteBatch.Draw(_texture, Position, Color.White);
         }
 
-        #region Colloision
+        #region Collision
         protected bool IsTouchingLeft(Sprite sprite)
         {
             return this.Rectangle.Right + this.Velocity.X > sprite.Rectangle.Left &&

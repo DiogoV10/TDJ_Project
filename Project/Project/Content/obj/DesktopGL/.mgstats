@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Background.png","D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/bin/DesktopGL/Background.xnb","TextureProcessor","Texture2DContent",10290,1536085,0,1998764
+"D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Ball.png","D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/bin/DesktopGL/Ball.xnb","TextureProcessor","Texture2DContent",88,1109,0,0020107
