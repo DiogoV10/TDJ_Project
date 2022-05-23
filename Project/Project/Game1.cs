@@ -46,10 +46,12 @@ namespace Project
 
             var playerTexture = Content.Load<Texture2D>("Ball");
 
-           
+
             _sprites = new List<Sprite>()
             {
-                new Sprite(Content.Load<Texture2D>("Background"),km),
+                new Sprite(Content.Load<Texture2D>("Background"),km){ Position = new Vector2(0,400)},
+                new Sprite(Content.Load<Texture2D>("Background"),km){ Position = new Vector2(600,200)},
+                new Sprite(Content.Load<Texture2D>("Background"),km){ Position = new Vector2(-600,200),},
                 new Player(playerTexture,km)
                 {
                     Position = new Vector2((ScreenWidth / 2) - (playerTexture.Width / 2), (ScreenHeight / 2) - (playerTexture.Height / 2)),
@@ -57,8 +59,22 @@ namespace Project
                     {
                         Right = Keys.D,
                         Left = Keys.A,
-                        
+                        Down = Keys.S,
+                        Up = Keys.W,
                     },
+                    Gravity = 1f,
+                },
+                new Player(playerTexture,km)
+                {
+                    Position = new Vector2((ScreenWidth / 2) - (playerTexture.Width / 2), (ScreenHeight / 2) - (playerTexture.Height / 2)-70),
+                    Input = new Input()
+                    {
+                        Right = Keys.Right,
+                        Left = Keys.Left,
+                        Down = Keys.Down,
+                        Up = Keys.Up,
+                    },
+                    Gravity = 1f,
                 },
             };
         }

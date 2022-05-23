@@ -9,6 +9,8 @@ namespace Project.Models
     {
         public Keys Right;
         public Keys Left;
+        public Keys Down;
+        public Keys Up;
         public Keys Jump;
     }
 }

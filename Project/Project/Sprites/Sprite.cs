@@ -16,8 +16,9 @@ namespace Project.Sprites
 
         public Input Input;
         public float Speed;
+        public float Gravity;
 
-        private KeyboardManager km;
+        private KeyboardManager _km;
 
 
         public Rectangle Rectangle
@@ -28,10 +29,10 @@ namespace Project.Sprites
             }
         }
 
-        public Sprite(Texture2D texture, KeyboardManager _km)
+        public Sprite(Texture2D texture, KeyboardManager km)
         {
             _texture = texture;
-            km = _km;
+            _km = km;
         }
 
         public virtual void Update(GameTime gametime, List<Sprite> sprites)

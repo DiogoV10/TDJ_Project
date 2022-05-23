@@ -9,17 +9,35 @@ namespace Project.Sprites
 {
     class Player : Sprite
     {
-        private KeyboardManager km;
+        private KeyboardManager _km;
 
-        public Player(Texture2D texture, KeyboardManager _km) : base(texture, _km)
+        private float _pullForce = 0f;
+        private float _timer = 0f;
+
+        public Player(Texture2D texture, KeyboardManager km) : base(texture, km)
         {
             Speed = 3f;
-            km = _km;
+            _km = km;
         }
 
         public override void Update(GameTime gametime, List<Sprite> sprites)
         {
             Movement();
+
+            _timer += (float)gametime.ElapsedGameTime.TotalSeconds;
+
+            if (_timer > 0.1)
+            {
+                _pullForce += 0.03f;
+                _timer = 0;
+            }
+
+            this.Velocity.Y += Gravity + _pullForce;
+ 
+
+            Collision(sprites);
+
+
 
             Position += Velocity;
 
@@ -28,17 +46,47 @@ namespace Project.Sprites
             Velocity = Vector2.Zero;
         }
 
+        private void Collision(List<Sprite> sprites)
+        {
+            foreach (var sprite in sprites)
+            {
+                if (sprite == this)
+                    continue;
+
+                if (this.Velocity.X > 0 && this.IsTouchingLeft(sprite) || this.Velocity.X < 0 && this.IsTouchingRight(sprite))
+                {
+                    this.Velocity.X = 0;
+                }
+
+
+                if (this.Velocity.Y > 0 && this.IsTouchingTop(sprite) || this.Velocity.Y < 0 && this.IsTouchingBottom(sprite))
+                {
+                    this.Velocity.Y = 0;
+                    _pullForce = 0f;
+                }
+                
+            }
+        }
+
         private void Movement()
         {
             if (Input == null)
                 throw new Exception("Please give a value to 'Input'");
 
-            if (km.IsKeyHeld(Input.Right))
+            if (_km.IsKeyHeld(Input.Right) && _km.IsKeyHeld(Input.Left))
+                Velocity.X = 0;
+            else if (_km.IsKeyHeld(Input.Right))
                 Velocity.X = Speed;
-            else if (km.IsKeyHeld(Input.Left))
+            else if (_km.IsKeyHeld(Input.Left))
                 Velocity.X = -Speed;
+            
+            if (_km.IsKeyHeld(Input.Down))
+                Velocity.Y = Speed;
+            
+            if (_km.IsKeyHeld(Input.Up))
+                Velocity.Y = -Speed;
 
-            km.Update();
+            _km.Update();
         }
     }
 }
