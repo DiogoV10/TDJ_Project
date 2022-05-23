@@ -9,6 +9,9 @@ namespace Project
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+
+        KeyboardManager km;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -19,6 +22,7 @@ namespace Project
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            km = new KeyboardManager();
 
             base.Initialize();
         }
@@ -32,10 +36,10 @@ namespace Project
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
 
             // TODO: Add your update logic here
+
+
 
             base.Update(gameTime);
         }

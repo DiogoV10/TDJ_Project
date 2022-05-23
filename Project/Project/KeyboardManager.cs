@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Input;
 
-namespace Sokoban
+namespace Project
 {
     class KeyboardManager
     {
