@@ -13,8 +13,11 @@ namespace Project.Sprites
 
         private float _pullForce = 0f;
         private float _timer = 0f;
-        private bool _hasJumped = false;
         private float _jumpHold = 0f;
+
+        private bool _hasJumped = false;
+        private bool _isRight = false;
+        private bool _isLeft = false;
 
         public Player(Texture2D texture, KeyboardManager km) : base(texture, km)
         {
@@ -27,7 +30,6 @@ namespace Project.Sprites
             _jumpHold = MathHelper.Clamp(_jumpHold, 0, 50);
 
             Movement();
-
 
             _timer += (float)gametime.ElapsedGameTime.TotalSeconds;
 
@@ -61,6 +63,19 @@ namespace Project.Sprites
             {
                 _hasJumped = true;
 
+                if (_km.IsKeyHeld(Input.Right))
+                {
+                    _isRight = true;
+                    _isLeft = false;
+                }
+
+
+                if (_km.IsKeyHeld(Input.Left))
+                {
+                    _isLeft = true;
+                    _isRight = false;
+                }
+
             }
 
 
@@ -69,16 +84,27 @@ namespace Project.Sprites
                 _jumpHold += 1f;
             }
 
+            if (_hasJumped)
+            {
+                if (_isRight)
+                    this.Velocity.X = Speed;
 
-            if (_hasJumped && _jumpHold > 0.1)
+                if (_isLeft)
+                    this.Velocity.X = -Speed;
+            }
+
+            if (_hasJumped && _jumpHold > 0)
             {
                 this.Velocity.Y = -JumpPower;
-                _jumpHold--;
+
                 _pullForce = 0;
+                _jumpHold--;
+                
             }
 
             if (_hasJumped && _jumpHold == 0)
             {
+
                 this.Velocity.Y = -JumpPower;
             }
         }
@@ -90,17 +116,35 @@ namespace Project.Sprites
                 if (sprite == this)
                     continue;
 
-                if (this.Velocity.X > 0 && this.IsTouchingLeft(sprite) || this.Velocity.X < 0 && this.IsTouchingRight(sprite))
+                if (this.Velocity.X > 0 && this.IsTouchingLeft(sprite))
                 {
-                    this.Velocity.X = 0;
+                    if (_hasJumped)
+                    {
+                        _isRight = false;
+                        _isLeft = true;
+                    }                        
+                    else
+                        this.Velocity.X = 0;
                 }
 
+                if (this.Velocity.X < 0 && this.IsTouchingRight(sprite))
+                {
+                    if (_hasJumped)
+                    {
+                        _isRight = true;
+                        _isLeft = false;
+                    }     
+                    else
+                        this.Velocity.X = 0;
+                }
 
                 if (this.Velocity.Y > 0 && this.IsTouchingTop(sprite) || this.Velocity.Y < 0 && this.IsTouchingBottom(sprite))
                 {
                     this.Velocity.Y = 0;
                     _pullForce = 0f;
                     _hasJumped = false;
+                    _isLeft = false;
+                    _isRight = false;
                 }
             }
         }
