@@ -17,6 +17,7 @@ namespace Project.Sprites
         public Input Input;
         public float Speed;
         public float Gravity;
+        public float JumpPower;
 
         private KeyboardManager _km;
 

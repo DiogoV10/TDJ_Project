@@ -13,6 +13,8 @@ namespace Project.Sprites
 
         private float _pullForce = 0f;
         private float _timer = 0f;
+        private bool _hasJumped = false;
+        private float _jumpHold = 0f;
 
         public Player(Texture2D texture, KeyboardManager km) : base(texture, km)
         {
@@ -22,21 +24,28 @@ namespace Project.Sprites
 
         public override void Update(GameTime gametime, List<Sprite> sprites)
         {
+            _jumpHold = MathHelper.Clamp(_jumpHold, 0, 50);
+
             Movement();
+
 
             _timer += (float)gametime.ElapsedGameTime.TotalSeconds;
 
+
+
             if (_timer > 0.1)
             {
-                _pullForce += 0.03f;
+                _pullForce += 1f;
                 _timer = 0;
             }
 
+            Jump();
+
+
             this.Velocity.Y += Gravity + _pullForce;
- 
+
 
             Collision(sprites);
-
 
 
             Position += Velocity;
@@ -44,6 +53,34 @@ namespace Project.Sprites
             Position.X = MathHelper.Clamp(Position.X, 0, Game1.ScreenWidth - _texture.Width);
 
             Velocity = Vector2.Zero;
+        }
+
+        private void Jump()
+        {
+            if (_km.IsKeyUp(Input.Jump) && !_hasJumped)
+            {
+                _hasJumped = true;
+
+            }
+
+
+            if (_km.IsKeyHeld(Input.Jump) && !_hasJumped)
+            {
+                _jumpHold += 1f;
+            }
+
+
+            if (_hasJumped && _jumpHold > 0.1)
+            {
+                this.Velocity.Y = -JumpPower;
+                _jumpHold--;
+                _pullForce = 0;
+            }
+
+            if (_hasJumped && _jumpHold == 0)
+            {
+                this.Velocity.Y = -JumpPower;
+            }
         }
 
         private void Collision(List<Sprite> sprites)
@@ -63,8 +100,8 @@ namespace Project.Sprites
                 {
                     this.Velocity.Y = 0;
                     _pullForce = 0f;
+                    _hasJumped = false;
                 }
-                
             }
         }
 
@@ -72,12 +109,13 @@ namespace Project.Sprites
         {
             if (Input == null)
                 throw new Exception("Please give a value to 'Input'");
+   
 
-            if (_km.IsKeyHeld(Input.Right) && _km.IsKeyHeld(Input.Left))
+            if (_km.IsKeyHeld(Input.Right) && _km.IsKeyHeld(Input.Left) && !_hasJumped && !_km.IsKeyHeld(Input.Jump))
                 Velocity.X = 0;
-            else if (_km.IsKeyHeld(Input.Right))
+            else if (_km.IsKeyHeld(Input.Right) && !_hasJumped && !_km.IsKeyHeld(Input.Jump))
                 Velocity.X = Speed;
-            else if (_km.IsKeyHeld(Input.Left))
+            else if (_km.IsKeyHeld(Input.Left) && !_hasJumped && !_km.IsKeyHeld(Input.Jump))
                 Velocity.X = -Speed;
             
             if (_km.IsKeyHeld(Input.Down))

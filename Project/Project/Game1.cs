@@ -61,8 +61,10 @@ namespace Project
                         Left = Keys.A,
                         Down = Keys.S,
                         Up = Keys.W,
+                        Jump = Keys.Space,
                     },
                     Gravity = 1f,
+                    JumpPower = 5f,
                 },
                 new Player(playerTexture,km)
                 {
