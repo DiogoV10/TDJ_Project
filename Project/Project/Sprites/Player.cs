@@ -18,6 +18,7 @@ namespace Project.Sprites
         private bool _hasJumped = false;
         private bool _isRight = false;
         private bool _isLeft = false;
+        private bool _inAir = false;
 
         public Player(Texture2D texture, KeyboardManager km) : base(texture, km)
         {
@@ -29,11 +30,11 @@ namespace Project.Sprites
         {
             _jumpHold = MathHelper.Clamp(_jumpHold, 0, 50);
 
+            
+
             Movement();
 
             _timer += (float)gametime.ElapsedGameTime.TotalSeconds;
-
-
 
             if (_timer > 0.1)
             {
@@ -45,6 +46,7 @@ namespace Project.Sprites
 
 
             this.Velocity.Y += Gravity + _pullForce;
+
 
 
             Collision(sprites);
@@ -59,10 +61,9 @@ namespace Project.Sprites
 
         private void Jump()
         {
-            if (_km.IsKeyUp(Input.Jump) && !_hasJumped)
+            if (_km.IsKeyUp(Input.Jump) && !_hasJumped && _inAir == false)
             {
-                _hasJumped = true;
-
+                
                 if (_km.IsKeyHeld(Input.Right))
                 {
                     _isRight = true;
@@ -76,13 +77,15 @@ namespace Project.Sprites
                     _isRight = false;
                 }
 
-            }
+                _hasJumped = true;
 
+            }
 
             if (_km.IsKeyHeld(Input.Jump) && !_hasJumped)
             {
                 _jumpHold += 1f;
             }
+
 
             if (_hasJumped)
             {
@@ -95,7 +98,7 @@ namespace Project.Sprites
 
             if (_hasJumped && _jumpHold > 0)
             {
-                this.Velocity.Y = -JumpPower;
+                this.Velocity.Y -= JumpPower;
 
                 _pullForce = 0;
                 _jumpHold--;
@@ -145,7 +148,11 @@ namespace Project.Sprites
                     _hasJumped = false;
                     _isLeft = false;
                     _isRight = false;
+                    _inAir = false;
                 }
+
+                if (this.Velocity.Y > 0 && !this.IsTouchingTop(sprite) && !this.IsTouchingBottom(sprite) && !this.IsTouchingRight(sprite) && !this.IsTouchingLeft(sprite))
+                    _inAir = true;
             }
         }
 
@@ -153,15 +160,32 @@ namespace Project.Sprites
         {
             if (Input == null)
                 throw new Exception("Please give a value to 'Input'");
-   
 
-            if (_km.IsKeyHeld(Input.Right) && _km.IsKeyHeld(Input.Left) && !_hasJumped && !_km.IsKeyHeld(Input.Jump))
+
+            if (_km.IsKeyHeld(Input.Right) && _km.IsKeyHeld(Input.Left) && !_hasJumped && !_km.IsKeyHeld(Input.Jump) && !_inAir)
                 Velocity.X = 0;
-            else if (_km.IsKeyHeld(Input.Right) && !_hasJumped && !_km.IsKeyHeld(Input.Jump))
+            else if (_km.IsKeyHeld(Input.Right) && !_hasJumped && !_km.IsKeyHeld(Input.Jump) && !_inAir)
+            {
+                _isRight = true;
+                _isLeft = false;
+            }
+                
+            else if (_km.IsKeyHeld(Input.Left) && !_hasJumped && !_km.IsKeyHeld(Input.Jump) && !_inAir)
+            {
+                _isLeft = true;
+                _isRight = false;
+            }
+
+            if (_isRight)
+            {
                 Velocity.X = Speed;
-            else if (_km.IsKeyHeld(Input.Left) && !_hasJumped && !_km.IsKeyHeld(Input.Jump))
+            }
+
+            if (_isLeft)
+            {
                 Velocity.X = -Speed;
-            
+            }
+
             if (_km.IsKeyHeld(Input.Down))
                 Velocity.Y = Speed;
             
