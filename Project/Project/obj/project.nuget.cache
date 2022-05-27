@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "cXA+JwTFEQ5VDaPjXbzikee31YgtavvqE8rIJ71C/4hZVn7WgR/mmAaFZzn8rCqD/lUJm5Ofdj0x67yAk/ZOLA==",
+  "dgSpecHash": "WAFtrY1EPDiBHR/DzJuSiMrpEbcMfcsHTFm9hDs0kqj22+iSPjMvQzhB5IvdmrnhTzLGPzasWUkAgV+WwvhyLg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asus\\Documents\\GitHub\\TDJ_Project\\Project\\Project\\Project.csproj",
+  "projectFilePath": "D:\\School\\Técnicas de Desenvolvimento de Vídeojogos\\TDJ_Project\\Project\\Project\\Project.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Asus\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
-    "C:\\Users\\Asus\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
+    "C:\\Users\\huawei\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
+    "C:\\Users\\huawei\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
   ],
   "logs": []
 }
