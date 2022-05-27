@@ -1,8 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Project.Controls2;
 using Project.Models;
 using Project.Sprites;
+using Project.States;
+using System;
 using System.Collections.Generic;
 
 namespace Project
@@ -12,12 +15,23 @@ namespace Project
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        //Screen Measures
         public static int ScreenWidth;
         public static int ScreenHeight;
 
+        //KeyboardManager
         private KeyboardManager km;
 
+        //Sprites
         private List<Sprite> _sprites;
+
+        //States
+        private State _currentState;
+        private State _nextState;
+        public void ChangeState(State state)
+        {
+            _nextState = state;
+        }
 
 
         public Game1()
@@ -42,7 +56,7 @@ namespace Project
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
 
             var playerTexture = Content.Load<Texture2D>("Ball");
 
@@ -81,10 +95,18 @@ namespace Project
             };
         }
 
+
         protected override void Update(GameTime gameTime)
         {
+            if(_nextState != null)
+            {
+                _currentState = _nextState;
+                _nextState = null;
+            }
 
-            // TODO: Add your update logic here
+            _currentState.Update(gameTime);
+
+            _currentState.PostUpdate(gameTime);
 
             foreach (var sprite in _sprites)
             {
@@ -99,9 +121,10 @@ namespace Project
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
-
             _spriteBatch.Begin();
+
+            _currentState.Draw(gameTime, _spriteBatch);
+
 
             foreach (var sprite in _sprites)
                 sprite.Draw(_spriteBatch);

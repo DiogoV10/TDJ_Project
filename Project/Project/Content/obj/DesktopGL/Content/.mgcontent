@@ -4,11 +4,15 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Background.png</File>
-    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Ball.png</File>
+    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Background.png</File>
+    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Ball.png</File>
+    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Controls/Button.png</File>
+    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Fonts/File.spritefont</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File>Fonts/Font.spritefont</File>
   </DestFiles>
 </SourceFileCollection>
