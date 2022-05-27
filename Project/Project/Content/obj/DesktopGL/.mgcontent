@@ -8,11 +8,17 @@
     <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Ball.png</File>
     <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Controls/Button.png</File>
     <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Fonts/File.spritefont</File>
+    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Jump Knight Holding.png</File>
+    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Jump Knight Idle.png</File>
+    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Jump Knight InAir.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File>Fonts/Font.spritefont</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

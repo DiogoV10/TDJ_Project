@@ -58,7 +58,7 @@ namespace Project
 
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
 
-            var playerTexture = Content.Load<Texture2D>("Ball");
+            var playerTexture = Content.Load<Texture2D>("Jump Knight Idle");
 
 
             _sprites = new List<Sprite>()
