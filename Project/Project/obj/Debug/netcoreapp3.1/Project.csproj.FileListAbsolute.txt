@@ -23,3 +23,31 @@ D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Projec
 D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Project.dll
 D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Project.pdb
 D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\obj\Debug\netcoreapp3.1\Project.genruntimeconfig.cache
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Background.xnb
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Ball.xnb
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Project.exe
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Project.deps.json
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Project.runtimeconfig.json
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Project.runtimeconfig.dev.json
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Project.dll
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Project.pdb
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\MonoGame.Framework.dll
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libSDL2-2.0.so.0
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libopenal.so.1
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\runtimes\osx\native\libSDL2-2.0.0.dylib
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\runtimes\osx\native\libopenal.1.dylib
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SDL2.dll
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\soft_oal.dll
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SDL2.dll
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\soft_oal.dll
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\obj\Debug\netcoreapp3.1\Project.csproj.AssemblyReference.cache
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\obj\Debug\netcoreapp3.1\Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\obj\Debug\netcoreapp3.1\Project.AssemblyInfoInputs.cache
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\obj\Debug\netcoreapp3.1\Project.AssemblyInfo.cs
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\obj\Debug\netcoreapp3.1\Project.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\obj\Debug\netcoreapp3.1\Project.csproj.CopyComplete
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\obj\Debug\netcoreapp3.1\Project.dll
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\obj\Debug\netcoreapp3.1\Project.pdb
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\obj\Debug\netcoreapp3.1\Project.genruntimeconfig.cache
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Controls\Button.xnb
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Fonts\Font.xnb
