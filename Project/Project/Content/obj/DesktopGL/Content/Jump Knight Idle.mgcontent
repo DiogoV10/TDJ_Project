@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Jump Knight Idle.png</SourceFile>
-  <SourceTime>2022-05-12T17:56:12.8257027+01:00</SourceTime>
-  <DestFile>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/bin/DesktopGL/Content/Jump Knight Idle.xnb</DestFile>
-  <DestTime>2022-05-27T22:14:24.0851621+01:00</DestTime>
+  <SourceFile>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Jump Knight Idle.png</SourceFile>
+  <SourceTime>2022-05-28T17:27:56.1750011+01:00</SourceTime>
+  <DestFile>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/bin/DesktopGL/Content/Jump Knight Idle.xnb</DestFile>
+  <DestTime>2022-05-28T17:28:21.9255838+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T17:17:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

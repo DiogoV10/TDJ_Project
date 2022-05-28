@@ -56,3 +56,6 @@ D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Projec
 C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Jump Knight Holding.xnb
 C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Jump Knight Idle.xnb
 C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Jump Knight InAir.xnb
+D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Jump Knight Holding.xnb
+D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Jump Knight Idle.xnb
+D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Jump Knight InAir.xnb

@@ -186,12 +186,6 @@ namespace Project.Sprites
                 Velocity.X = -Speed;
             }
 
-            if (_km.IsKeyHeld(Input.Down))
-                Velocity.Y = Speed;
-            
-            if (_km.IsKeyHeld(Input.Up))
-                Velocity.Y = -Speed;
-
             _km.Update();
         }
     }

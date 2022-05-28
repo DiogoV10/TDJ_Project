@@ -73,8 +73,6 @@ namespace Project
                     {
                         Right = Keys.D,
                         Left = Keys.A,
-                        Down = Keys.S,
-                        Up = Keys.W,
                         Jump = Keys.Space,
                     },
                     Gravity = 1f,
@@ -87,8 +85,7 @@ namespace Project
                     {
                         Right = Keys.Right,
                         Left = Keys.Left,
-                        Down = Keys.Down,
-                        Up = Keys.Up,
+                        Jump = Keys.Up,
                     },
                     Gravity = 1f,
                 },
