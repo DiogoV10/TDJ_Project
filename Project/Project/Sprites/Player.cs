@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project.States;
@@ -11,16 +12,17 @@ namespace Project.Sprites
     class Player : Sprite
     {
         private KeyboardManager _km;
-        private GameState _gm;
 
+        protected Game1 _game;
 
-        public Player(Texture2D texture, KeyboardManager km) : base(texture, km)
+        public Player(Texture2D texture, KeyboardManager km, Game1 game) : base(texture, km)
         {
             Speed = 3f;
             _km = km;
+            _game = game;
         }
 
-        public override void Update(GameTime gametime, List<Sprite> sprites)
+        public override void Update(GameTime gametime, List<Sprite> sprites, SoundEffect jump)
         {
             
 
@@ -37,7 +39,7 @@ namespace Project.Sprites
                 this.Timer = 0;
             }
 
-            Jump();
+            Jump(jump);
 
 
             this.Velocity.Y += Gravity + this.PullForce;
@@ -50,12 +52,12 @@ namespace Project.Sprites
 
             if (Position.Y < 0)
             {
-                Game1.ChangeLevel(1, this.Position, this.Velocity, this.PullForce, this.JumpHold, this.HasJumped, this.IsRight, this.IsLeft, this.InAir);
+                Game1.ChangeLevel(1, this.JumpCount, this.Position, this.Velocity, this.PullForce, this.JumpHold, this.HasJumped, this.IsRight, this.IsLeft, this.InAir);
             }
 
             if (Position.Y > Game1.ScreenHeight)
             {
-                Game1.ChangeLevel(0, this.Position, this.Velocity, this.PullForce, this.JumpHold, this.HasJumped, this.IsRight, this.IsLeft, this.InAir);
+                Game1.ChangeLevel(0, this.JumpCount, this.Position, this.Velocity, this.PullForce, this.JumpHold, this.HasJumped, this.IsRight, this.IsLeft, this.InAir);
             }
 
 
@@ -67,7 +69,7 @@ namespace Project.Sprites
             Velocity = Vector2.Zero;
         }
 
-        private void Jump()
+        private void Jump(SoundEffect jump)
         {
             if (_km.IsKeyUp(Input.Jump) && !this.HasJumped && this.InAir == false)
             {
@@ -87,6 +89,8 @@ namespace Project.Sprites
 
                 this.HasJumped = true;
 
+                this.JumpCount++;
+                jump.Play();
             }
 
             if (_km.IsKeyHeld(Input.Jump) && !this.HasJumped)
@@ -126,6 +130,9 @@ namespace Project.Sprites
             {
                 if (sprite == this)
                     continue;
+
+                if (sprite.Finish == true && this.IsTouchingTop(sprite) && this.Velocity.Y > 0)
+                    _game.Exit();
 
                 if (this.Velocity.X > 0 && this.IsTouchingLeft(sprite))
                 {

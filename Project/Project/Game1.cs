@@ -89,9 +89,9 @@ namespace Project
             base.Draw(gameTime);
         }
 
-        public static void ChangeLevel(int level, Vector2 Position, Vector2 Velocity, float PullForce, float JumpHold, bool HasJumped, bool IsRight, bool IsLeft, bool InAir)
+        public static void ChangeLevel(int level, int JumpCount, Vector2 Position, Vector2 Velocity, float PullForce, float JumpHold, bool HasJumped, bool IsRight, bool IsLeft, bool InAir)
         {
-            GameState.ChangeLevel(level, Position, Velocity, PullForce, JumpHold, HasJumped, IsRight, IsLeft, InAir);
+            GameState.ChangeLevel(level, JumpCount, Position, Velocity, PullForce, JumpHold, HasJumped, IsRight, IsLeft, InAir);
         }
     }
 }

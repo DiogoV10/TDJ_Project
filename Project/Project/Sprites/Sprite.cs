@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Models;
 using System;
@@ -16,6 +17,8 @@ namespace Project.Sprites
 
         public Input Input;
 
+        public int JumpCount;
+
         public float Speed;
         public float Gravity;
         public float JumpPower;
@@ -27,6 +30,7 @@ namespace Project.Sprites
         public bool IsRight = false;
         public bool IsLeft = false;
         public bool InAir = false;
+        public bool Finish = false;
 
         private KeyboardManager _km;
 
@@ -45,7 +49,7 @@ namespace Project.Sprites
             _km = km;
         }
 
-        public virtual void Update(GameTime gametime, List<Sprite> sprites)
+        public virtual void Update(GameTime gametime, List<Sprite> sprites, SoundEffect jump)
         {
 
         }

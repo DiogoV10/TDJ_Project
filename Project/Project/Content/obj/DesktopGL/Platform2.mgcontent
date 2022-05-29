@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Button.png</SourceFile>
-  <SourceTime>2022-05-26T10:11:51.9277491+01:00</SourceTime>
-  <DestFile>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/bin/DesktopGL/Button.xnb</DestFile>
-  <DestTime>2022-05-29T23:39:55.1623195+01:00</DestTime>
+  <SourceFile>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Platform2.png</SourceFile>
+  <SourceTime>2022-05-29T22:23:30.3643144+01:00</SourceTime>
+  <DestFile>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/bin/DesktopGL/Platform2.xnb</DestFile>
+  <DestTime>2022-05-29T23:39:56.8492484+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T17:17:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Jump Retro.wav</SourceFile>
+  <SourceTime>2022-05-29T16:06:17.3509055+01:00</SourceTime>
+  <DestFile>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/bin/DesktopGL/Jump Retro.xnb</DestFile>
+  <DestTime>2022-05-29T23:39:56.7745012+01:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2020-08-10T17:17:54+01:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2020-08-10T17:17:54+01:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Project.Sprites;
@@ -13,6 +14,7 @@ namespace Project.States
         private Texture2D backgroundTexture;
         private Texture2D playerTexture;
         private List<Sprite> _sprites;
+        private SpriteFont font;
 
         //Screen Measures
         public static int ScreenWidth;
@@ -32,12 +34,15 @@ namespace Project.States
         private static bool _hasJumped;
         private static bool _inAir;
 
+        private static int _jumpCount = 0;
+
+        private SoundEffect jump;
+
         //KeyboardManager
         private KeyboardManager km = new KeyboardManager();
 
         //LevelManager
         private LevelManager lm = new LevelManager();
-
 
 
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
@@ -46,13 +51,16 @@ namespace Project.States
             ScreenHeight=480;
 
             //Load Textures
-            backgroundTexture = content.Load<Texture2D>("BackgroundJK1");
+            backgroundTexture = content.Load<Texture2D>("Forest");
             playerTexture = content.Load<Texture2D>("Jump Knight Idle");
+            font = _content.Load<SpriteFont>("Fonts/Font");
+
+            jump = content.Load<SoundEffect>("Jump Retro");
 
             //Sprites
             _sprites = new List<Sprite>();
 
-            lm.LoadLevel(km, ref _sprites, ref ScreenWidth, ref ScreenHeight, content, ref _position, ref _velocity, ref _pullForce, ref _jumpHold, ref _hasJumped, ref _isRight, ref _isLeft, ref _inAir);
+            lm.LoadLevel(_game, km, ref _sprites, ref ScreenWidth, ref ScreenHeight, content, ref _position, ref _velocity, ref _pullForce, ref _jumpHold, ref _hasJumped, ref _isRight, ref _isLeft, ref _inAir, ref _jumpCount);
 
         }
 
@@ -63,21 +71,22 @@ namespace Project.States
 
         public override void Update(GameTime gameTime, ContentManager Content)
         {
+
             if (_level == 1)
             {
-                lm.NextLevel(km, ref _sprites, ref ScreenWidth, ref ScreenHeight, Content, ref _position, ref _velocity, ref _pullForce, ref _jumpHold, ref _hasJumped, ref _isRight, ref _isLeft, ref _inAir);
+                lm.NextLevel(_game, km, ref _sprites, ref ScreenWidth, ref ScreenHeight, Content, ref _position, ref _velocity, ref _pullForce, ref _jumpHold, ref _hasJumped, ref _isRight, ref _isLeft, ref _inAir, ref _jumpCount);
                 _level = -1;
             }
 
             if (_level == 0)
             {
-                lm.PreviousLevel(km, ref _sprites, ref ScreenWidth, ref ScreenHeight, Content, ref _position, ref _velocity, ref _pullForce, ref _jumpHold, ref _hasJumped, ref _isRight, ref _isLeft, ref _inAir);
+                lm.PreviousLevel(_game, km, ref _sprites, ref ScreenWidth, ref ScreenHeight, Content, ref _position, ref _velocity, ref _pullForce, ref _jumpHold, ref _hasJumped, ref _isRight, ref _isLeft, ref _inAir, ref _jumpCount);
                 _level = -1;
             }
 
             foreach (var sprite in _sprites)
             {
-                sprite.Update(gameTime, _sprites);
+                sprite.Update(gameTime, _sprites, jump);
             }
         }
         
@@ -88,9 +97,12 @@ namespace Project.States
             foreach (var sprite in _sprites)
                 sprite.Draw(spriteBatch);
 
+
+            spriteBatch.DrawString(font, " "+_jumpCount, new Vector2(ScreenWidth / 2, 10), Color.White);
+
         }
 
-        public static void ChangeLevel(int level, Vector2 Position, Vector2 Velocity, float PullForce, float JumpHold, bool HasJumped, bool IsRight, bool IsLeft, bool InAir)
+        public static void ChangeLevel(int level, int JumpCount, Vector2 Position, Vector2 Velocity, float PullForce, float JumpHold, bool HasJumped, bool IsRight, bool IsLeft, bool InAir)
         {
             _level = level;
 
@@ -102,6 +114,7 @@ namespace Project.States
             _isRight = IsRight;
             _isLeft = IsLeft;
             _inAir = InAir;
+            _jumpCount = JumpCount;
         }
     }
 }
