@@ -11,14 +11,6 @@ namespace Project.Sprites
     {
         private KeyboardManager _km;
 
-        private float _pullForce = 0f;
-        private float _timer = 0f;
-        private float _jumpHold = 0f;
-
-        private bool _hasJumped = false;
-        private bool _isRight = false;
-        private bool _isLeft = false;
-        private bool _inAir = false;
 
         public Player(Texture2D texture, KeyboardManager km) : base(texture, km)
         {
@@ -28,28 +20,42 @@ namespace Project.Sprites
 
         public override void Update(GameTime gametime, List<Sprite> sprites)
         {
-            _jumpHold = MathHelper.Clamp(_jumpHold, 0, 50);
-
             
+
+            this.JumpHold = MathHelper.Clamp(this.JumpHold, 0, 50);
+
 
             Movement();
 
-            _timer += (float)gametime.ElapsedGameTime.TotalSeconds;
+            this.Timer += (float)gametime.ElapsedGameTime.TotalSeconds;
 
-            if (_timer > 0.1)
+            if (this.Timer > 0.1)
             {
-                _pullForce += 1f;
-                _timer = 0;
+                this.PullForce += 1f;
+                this.Timer = 0;
             }
 
             Jump();
 
 
-            this.Velocity.Y += Gravity + _pullForce;
+            this.Velocity.Y += Gravity + this.PullForce;
 
 
 
             Collision(sprites);
+
+            
+
+            if (Position.Y < 0)
+            {
+                Game1.ChangeLevel(1, this.Position, this.Velocity, this.PullForce, this.JumpHold, this.HasJumped, this.IsRight, this.IsLeft, this.InAir);
+            }
+
+            if (Position.Y > Game1.ScreenHeight)
+            {
+                Game1.ChangeLevel(0, this.Position, this.Velocity, this.PullForce, this.JumpHold, this.HasJumped, this.IsRight, this.IsLeft, this.InAir);
+            }
+
 
 
             Position += Velocity;
@@ -61,51 +67,51 @@ namespace Project.Sprites
 
         private void Jump()
         {
-            if (_km.IsKeyUp(Input.Jump) && !_hasJumped && _inAir == false)
+            if (_km.IsKeyUp(Input.Jump) && !this.HasJumped && this.InAir == false)
             {
                 
                 if (_km.IsKeyHeld(Input.Right))
                 {
-                    _isRight = true;
-                    _isLeft = false;
+                    this.IsRight = true;
+                    this.IsLeft = false;
                 }
 
 
                 if (_km.IsKeyHeld(Input.Left))
                 {
-                    _isLeft = true;
-                    _isRight = false;
+                    this.IsLeft = true;
+                    this.IsRight = false;
                 }
 
-                _hasJumped = true;
+                this.HasJumped = true;
 
             }
 
-            if (_km.IsKeyHeld(Input.Jump) && !_hasJumped)
+            if (_km.IsKeyHeld(Input.Jump) && !this.HasJumped)
             {
-                _jumpHold += 1f;
+                this.JumpHold += 1f;
             }
 
 
-            if (_hasJumped)
+            if (this.HasJumped)
             {
-                if (_isRight)
+                if (this.IsRight)
                     this.Velocity.X = Speed;
 
-                if (_isLeft)
+                if (this.IsLeft)
                     this.Velocity.X = -Speed;
             }
 
-            if (_hasJumped && _jumpHold > 0)
+            if (this.HasJumped && this.JumpHold > 0)
             {
                 this.Velocity.Y -= JumpPower;
 
-                _pullForce = 0;
-                _jumpHold--;
+                this.PullForce = 0;
+                this.JumpHold--;
                 
             }
 
-            if (_hasJumped && _jumpHold == 0)
+            if (this.HasJumped && this.JumpHold == 0)
             {
 
                 this.Velocity.Y = -JumpPower;
@@ -121,10 +127,10 @@ namespace Project.Sprites
 
                 if (this.Velocity.X > 0 && this.IsTouchingLeft(sprite))
                 {
-                    if (_hasJumped)
+                    if (this.HasJumped)
                     {
-                        _isRight = false;
-                        _isLeft = true;
+                        this.IsRight = false;
+                        this.IsLeft = true;
                     }                        
                     else
                         this.Velocity.X = 0;
@@ -132,10 +138,10 @@ namespace Project.Sprites
 
                 if (this.Velocity.X < 0 && this.IsTouchingRight(sprite))
                 {
-                    if (_hasJumped)
+                    if (this.HasJumped)
                     {
-                        _isRight = true;
-                        _isLeft = false;
+                        this.IsRight = true;
+                        this.IsLeft = false;
                     }     
                     else
                         this.Velocity.X = 0;
@@ -144,47 +150,50 @@ namespace Project.Sprites
                 if (this.Velocity.Y > 0 && this.IsTouchingTop(sprite) || this.Velocity.Y < 0 && this.IsTouchingBottom(sprite))
                 {
                     this.Velocity.Y = 0;
-                    _pullForce = 0f;
-                    _hasJumped = false;
-                    _isLeft = false;
-                    _isRight = false;
-                    _inAir = false;
+                    this.PullForce = 0f;
+                    this.HasJumped = false;
+                    this.IsLeft = false;
+                    this.IsRight = false;
+                    this.InAir = false;
                 }
 
                 if (this.Velocity.Y > 0 && !this.IsTouchingTop(sprite) && !this.IsTouchingBottom(sprite) && !this.IsTouchingRight(sprite) && !this.IsTouchingLeft(sprite))
-                    _inAir = true;
+                    this.InAir = true;
             }
         }
 
         private void Movement()
         {
+            
             if (Input == null)
                 throw new Exception("Please give a value to 'Input'");
 
 
-            if (_km.IsKeyHeld(Input.Right) && _km.IsKeyHeld(Input.Left) && !_hasJumped && !_km.IsKeyHeld(Input.Jump) && !_inAir)
+            if (_km.IsKeyHeld(Input.Right) && _km.IsKeyHeld(Input.Left) && !this.HasJumped && !_km.IsKeyHeld(Input.Jump) && !this.InAir)
                 Velocity.X = 0;
-            else if (_km.IsKeyHeld(Input.Right) && !_hasJumped && !_km.IsKeyHeld(Input.Jump) && !_inAir)
+            else if (_km.IsKeyHeld(Input.Right) && !this.HasJumped && !_km.IsKeyHeld(Input.Jump) && !this.InAir)
             {
-                _isRight = true;
-                _isLeft = false;
+                this.IsRight = true;
+                this.IsLeft = false;
             }
                 
-            else if (_km.IsKeyHeld(Input.Left) && !_hasJumped && !_km.IsKeyHeld(Input.Jump) && !_inAir)
+            else if (_km.IsKeyHeld(Input.Left) && !this.HasJumped && !_km.IsKeyHeld(Input.Jump) && !this.InAir)
             {
-                _isLeft = true;
-                _isRight = false;
+                this.IsLeft = true;
+                this.IsRight = false;
             }
 
-            if (_isRight)
+            if (this.IsRight)
             {
                 Velocity.X = Speed;
             }
 
-            if (_isLeft)
+            if (this.IsLeft)
             {
                 Velocity.X = -Speed;
             }
+
+            
 
             _km.Update();
         }

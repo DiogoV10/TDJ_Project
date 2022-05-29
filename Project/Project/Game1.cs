@@ -19,15 +19,32 @@ namespace Project
         public static int ScreenWidth;
         public static int ScreenHeight;
 
+        private static int _level = -1;
+
+        private static Vector2 _position;
+        private static Vector2 _velocity;
+
+        private static float _pullForce;
+        private static float _jumpHold;
+
+        private static bool _isRight;
+        private static bool _isLeft;
+        private static bool _hasJumped;
+        private static bool _inAir;
+
+
         //KeyboardManager
         private KeyboardManager km;
+        private LevelManager lm;
 
         //Sprites
         private List<Sprite> _sprites;
 
+
         //States
         private State _currentState;
         private State _nextState;
+
         public void ChangeState(State state)
         {
             _nextState = state;
@@ -45,9 +62,14 @@ namespace Project
         {
             // TODO: Add your initialization logic here
             km = new KeyboardManager();
+            lm = new LevelManager();
+            _sprites = new List<Sprite>();
+
 
             ScreenWidth = _graphics.PreferredBackBufferWidth;
             ScreenHeight = _graphics.PreferredBackBufferHeight;
+
+            
 
             base.Initialize();
         }
@@ -58,44 +80,28 @@ namespace Project
 
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
 
-            var playerTexture = Content.Load<Texture2D>("Jump Knight Idle");
+            
 
+            lm.LoadLevel(km,ref _sprites,ref ScreenWidth,ref ScreenHeight, Content,ref _position, ref _velocity, ref _pullForce, ref _jumpHold, ref _hasJumped, ref _isRight, ref _isLeft, ref _inAir);
 
-            _sprites = new List<Sprite>()
-            {
-                new Sprite(Content.Load<Texture2D>("Background"),km){ Position = new Vector2(0,400)},
-                new Sprite(Content.Load<Texture2D>("Background"),km){ Position = new Vector2(600,200)},
-                new Sprite(Content.Load<Texture2D>("Background"),km){ Position = new Vector2(-600,200),},
-                new Player(playerTexture,km)
-                {
-                    Position = new Vector2((ScreenWidth / 2) - (playerTexture.Width / 2), (ScreenHeight / 2) - (playerTexture.Height / 2)),
-                    Input = new Input()
-                    {
-                        Right = Keys.D,
-                        Left = Keys.A,
-                        Jump = Keys.Space,
-                    },
-                    Gravity = 1f,
-                    JumpPower = 5f,
-                },
-                new Player(playerTexture,km)
-                {
-                    Position = new Vector2((ScreenWidth / 2) - (playerTexture.Width / 2), (ScreenHeight / 2) - (playerTexture.Height / 2)-70),
-                    Input = new Input()
-                    {
-                        Right = Keys.Right,
-                        Left = Keys.Left,
-                        Jump = Keys.Up,
-                    },
-                    Gravity = 1f,
-                },
-            };
         }
 
 
         protected override void Update(GameTime gameTime)
         {
-            if(_nextState != null)
+            if (_level == 1)
+            {
+                lm.NextLevel(km, ref _sprites, ref ScreenWidth, ref ScreenHeight, Content, ref _position, ref _velocity, ref _pullForce, ref _jumpHold, ref _hasJumped, ref _isRight, ref _isLeft, ref _inAir);
+                _level = -1;
+            }
+
+            if (_level == 0)
+            {
+                lm.PreviousLevel(km, ref _sprites, ref ScreenWidth, ref ScreenHeight, Content, ref _position, ref _velocity, ref _pullForce, ref _jumpHold, ref _hasJumped, ref _isRight, ref _isLeft, ref _inAir);
+                _level = -1;
+            }
+
+            if (_nextState != null)
             {
                 _currentState = _nextState;
                 _nextState = null;
@@ -105,11 +111,15 @@ namespace Project
 
             _currentState.PostUpdate(gameTime);
 
-            foreach (var sprite in _sprites)
+
+
+
+                foreach (var sprite in _sprites)
             {
                 sprite.Update(gameTime, _sprites);
             }
 
+            
 
             base.Update(gameTime);
         }
@@ -130,6 +140,20 @@ namespace Project
             _spriteBatch.End();
                 
             base.Draw(gameTime);
+        }
+
+        public static void ChangeLevel(int level, Vector2 Position, Vector2 Velocity, float PullForce, float JumpHold, bool HasJumped, bool IsRight, bool IsLeft, bool InAir)
+        {
+            _level = level;
+
+            _position = Position;
+            _velocity = Velocity;
+            _pullForce = PullForce;
+            _jumpHold = JumpHold;
+            _hasJumped = HasJumped;
+            _isRight = IsRight;
+            _isLeft = IsLeft;
+            _inAir = InAir;
         }
     }
 }

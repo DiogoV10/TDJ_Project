@@ -15,9 +15,18 @@ namespace Project.Sprites
         public Vector2 Velocity;
 
         public Input Input;
+
         public float Speed;
         public float Gravity;
         public float JumpPower;
+        public float PullForce = 0f;
+        public float Timer = 0f;
+        public float JumpHold = 0f;
+
+        public bool HasJumped = false;
+        public bool IsRight = false;
+        public bool IsLeft = false;
+        public bool InAir = false;
 
         private KeyboardManager _km;
 
