@@ -59,3 +59,6 @@ C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3
 D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Jump Knight Holding.xnb
 D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Jump Knight Idle.xnb
 D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Jump Knight InAir.xnb
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Button.xnb
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Jump-King-Web-Banner-1000w.xnb
+C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\BackgroundJK1.xnb

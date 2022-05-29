@@ -14,8 +14,6 @@ namespace Project
     {
         int currentLevel=1;
 
-        
-
         bool next = false;
         bool prev = false;
         bool lvlChanged = false;

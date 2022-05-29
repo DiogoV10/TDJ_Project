@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Project.States;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,6 +11,7 @@ namespace Project.Sprites
     class Player : Sprite
     {
         private KeyboardManager _km;
+        private GameState _gm;
 
 
         public Player(Texture2D texture, KeyboardManager km) : base(texture, km)

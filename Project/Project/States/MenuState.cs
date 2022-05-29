@@ -17,35 +17,26 @@ namespace Project.States
             var buttonTexture = _content.Load<Texture2D>("Controls/Button");
             var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
 
-            var newGameButton = new Button(buttonTexture, buttonFont)
+            var startButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 200),
-                Text="New Game",
+                Position = new Vector2(800 / 2 - 62, 480 / 2 + 50),
+                Text="Start",
             };
 
-            newGameButton.Click += NewGameButton_Click;
+            startButton.Click += StartButton_Click;
 
-            var loadGameButton = new Button(buttonTexture, buttonFont)
+            var quitButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 250),
-                Text = "Load Game",
-            };
-
-            loadGameButton.Click += LoadGameButton_Click;
-
-            var quitGameButton = new Button(buttonTexture, buttonFont)
-            {
-                Position = new Vector2(300, 300),
+                Position = new Vector2(800 / 2 - 62, 480 / 2 + 110),
                 Text = "Quit",
             };
 
-            quitGameButton.Click += QuitGameButton_Click;
+            quitButton.Click += QuitButton_Click;
 
             _components = new List<Component>()
             {
-                newGameButton,
-                loadGameButton,
-                quitGameButton,
+                startButton,
+                quitButton,
             };
         }
 
@@ -56,28 +47,23 @@ namespace Project.States
                 component.Draw(gameTime, spriteBatch);
         }
 
-        private void LoadGameButton_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("Load Game");
-        }
-
-        private void NewGameButton_Click(object sender, EventArgs e)
+        private void StartButton_Click(object sender, EventArgs e)
         {
             _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
         }
 
         public override void PostUpdate(GameTime gameTime)
         {
-            //remove sprites se não necessários
+            //remover sprites se não necessários
         }
 
-        public override void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime, ContentManager content)
         {
             foreach (var component in _components)
                 component.Update(gameTime);
         }
 
-        private void QuitGameButton_Click(object sender, EventArgs e)
+        private void QuitButton_Click(object sender, EventArgs e)
         {
             _game.Exit();
         }

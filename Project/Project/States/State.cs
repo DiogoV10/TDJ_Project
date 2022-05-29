@@ -34,7 +34,7 @@ namespace Project.States
             _content = content;
         }
 
-        public abstract void Update(GameTime gameTime);
+        public abstract void Update(GameTime gameTime, ContentManager content);
 
         #endregion
     }
