@@ -4,22 +4,22 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Background.png</File>
-    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/BackgroundJK1.png</File>
-    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Ball.png</File>
-    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Button.png</File>
-    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Controls/Button.png</File>
-    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Fonts/File.spritefont</File>
-    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Forest.png</File>
-    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Ground.png</File>
-    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Jump Knight Holding.png</File>
-    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Jump Knight Idle.png</File>
-    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Jump Knight InAir.png</File>
-    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Jump Retro.wav</File>
-    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Jump-King-Web-Banner-1000w.png</File>
-    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Platform1.png</File>
-    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Platform2.png</File>
-    <File>C:/Users/Asus/Documents/GitHub/TDJ_Project/Project/Project/Content/Platform3.png</File>
+    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Background.png</File>
+    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/BackgroundJK1.png</File>
+    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Ball.png</File>
+    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Button.png</File>
+    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Controls/Button.png</File>
+    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Fonts/File.spritefont</File>
+    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Forest.png</File>
+    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Ground.png</File>
+    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Jump Knight Holding.png</File>
+    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Jump Knight Idle.png</File>
+    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Jump Knight InAir.png</File>
+    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Jump Retro.wav</File>
+    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Jump-King-Web-Banner-1000w.png</File>
+    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Platform1.png</File>
+    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Platform2.png</File>
+    <File>D:/School/Técnicas de Desenvolvimento de Vídeojogos/TDJ_Project/Project/Project/Content/Platform3.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

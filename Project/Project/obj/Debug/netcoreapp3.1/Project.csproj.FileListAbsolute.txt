@@ -68,3 +68,12 @@ C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3
 C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Platform3.xnb
 C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Forest.xnb
 C:\Users\Asus\Documents\GitHub\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Jump Retro.xnb
+D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\BackgroundJK1.xnb
+D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Button.xnb
+D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Forest.xnb
+D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Ground.xnb
+D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Jump Retro.xnb
+D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Jump-King-Web-Banner-1000w.xnb
+D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Platform1.xnb
+D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Platform2.xnb
+D:\School\Técnicas de Desenvolvimento de Vídeojogos\TDJ_Project\Project\Project\bin\Debug\netcoreapp3.1\Content\Platform3.xnb
